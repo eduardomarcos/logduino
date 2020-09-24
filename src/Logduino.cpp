@@ -14,7 +14,7 @@ void Logduino::debug(const char* msg, const int arg1) {
     Serial.print(msg);
     Serial.println(arg1);
 #else
-    stringstream converted;
+    std::stringstream converted;
     converted << arg1;
     this->debug(msg, converted.str().c_str(), "");
 #endif
@@ -37,9 +37,9 @@ void Logduino::debug(const char* msg, const char* arg1, const char* arg2, const 
     struct tm* lt = localtime(&t);
     char date[9];
     date[strftime(date, sizeof(date), "%H:%M:%S", lt)] = '\0';
-    cout << "[" << date << "]"
+    std::cout << "[" << date << "]"
          << "[" << std::setw(this->widthLoggerName) << this->logger << "]\e[38;5;71m["
-         << std::setw(this->widthVerboseName) << "DEBUG]\e[1;0m::" << msg << arg1 << arg2 << arg3 << endl;
+         << std::setw(this->widthVerboseName) << "DEBUG]\e[1;0m::" << msg << arg1 << arg2 << arg3 << std::endl;
 #endif
 }
 
@@ -58,9 +58,9 @@ void Logduino::info(const char* msg, const char* arg1) {
     struct tm* lt = localtime(&t);
     char date[9];
     date[strftime(date, sizeof(date), "%H:%M:%S", lt)] = '\0';
-    cout << "[" << date << "]"
+    std::cout << "[" << date << "]"
          << "[" << std::setw(this->widthLoggerName) << this->logger << "]\e[38;5;214m["
-         << std::setw(this->widthVerboseName) << "INFO]::\e[1;0m" << msg << arg1 << endl;
+         << std::setw(this->widthVerboseName) << "INFO]::\e[1;0m" << msg << arg1 << std::endl;
 #endif
 }
 
@@ -77,8 +77,8 @@ void Logduino::error(const char* msg) {
     struct tm* lt = localtime(&t);
     char date[9];
     date[strftime(date, sizeof(date), "%H:%M:%S", lt)] = '\0';
-    cout << "[" << date << "]"
+    std::cout << "[" << date << "]"
          << "[" << std::setw(this->widthLoggerName) << this->logger << "]\e[38;5;1m["
-         << std::setw(this->widthVerboseName) << "ERROR]\e[1;0m::" << msg << endl;
+         << std::setw(this->widthVerboseName) << "ERROR]\e[1;0m::" << msg << std::endl;
 #endif
 }
