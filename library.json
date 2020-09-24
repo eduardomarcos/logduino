@@ -1,0 +1,20 @@
+{
+  "name": "Logduino",
+  "keywords": "arduino, esp32, esp8266, log, serial, terminal",
+  "description": "Log module for Arduino projects.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eduardomarcos/logduino"
+  },
+  "version": "1.0.0",
+  "frameworks": "arduino",
+  "platforms": [
+    "atmelavr",
+    "atmelsam",
+    "teensy",
+    "atmelmegaavr",
+    "espressif32",
+    "espressif8266",
+    "linux_arm"
+  ]
+}
